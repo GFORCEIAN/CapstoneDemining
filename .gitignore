@@ -1,0 +1,9 @@
+# These are files that I don't think should be included in the git repository
+
+# Any files created by python 'compiler'
+**/__pycache__*
+
+# VS Code specific things (for now)
+# I did use this to change which installation of python I was using
+# -Settings.json -> "python-envs.defaultEnvManager": "ms-python.python:system"
+.vscode*
