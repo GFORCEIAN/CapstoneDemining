@@ -3,7 +3,8 @@ Used on the base station to receive inputs from a controller and send appropriat
 
 ## Libraries to install
 - PyQt5 for the GUI -> "pip install PyQt5"
-- xbox_controller -> "pip install xbox-controller-py"
+- Serial for Arduino communication -> "pip install pyserial"
+- XBox controller library -> "pip install xbox-controller-py"
 
 ## X-Box Controller Setup
 Some X-box controllers that we are using require a chinese-made dongle to plug into the computer.  This requires drivers which the following steps should help in installing. Note: I already have them installed, so this procedure might require revision.

@@ -62,7 +62,7 @@ class MainWindow(QWidget):
         arduino_layout = QGridLayout()
 
         self.port_combo = QComboBox()
-        self.port_combo.addItems(["COM1", "COM2", "COM3"]) # TODO: Auto-generate these
+        self.port_combo.addItems(["COM1", "COM2", "COM3", "COM4", "COM5"]) # TODO: Auto-generate these
 
         self.comm_latency = QLabel("__ms")
 
@@ -262,6 +262,9 @@ class MainWindow(QWidget):
         self.motor_fields['Port 2']['B'].setText(f"{(port2['B']*100):.2f}%")
         self.motor_fields['Port 3']['A'].setText(f"{(port3['A']*100):.2f}%")
         self.motor_fields['Port 3']['B'].setText(f"{(port3['B']*100):.2f}%")
+
+    def get_comm_port(self) -> str:
+        return self.port_combo.currentText()
 
 
 if __name__ == "__main__":

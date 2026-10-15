@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QApplication
 
 from Window import MainWindow
 from Controller import Controller
+from RobotInterface import ArduinoInterface
 
 
 class Application(MainWindow):
@@ -13,6 +14,9 @@ class Application(MainWindow):
 
         # Create controller
         self.controller = Controller()
+
+        # Create Interface with motors
+        self.robot_interface = ArduinoInterface()
 
         # Create update timer
         self.timer = QTimer(self)
@@ -34,6 +38,7 @@ class Application(MainWindow):
 
         self.timer.stop()
         self.controller.disconnect()
+        self.robot_interface.disconnect()
         event.accept()
 
     def update_motor_speeds(self):
@@ -64,7 +69,10 @@ class Application(MainWindow):
                 "A": 0.0,
                 "B": 0.0,
             }
-        # TODO: Send motor speeds to Arduino
+        
+        # Send motor speeds to Arduino
+        self.robot_interface.periodic(self.get_comm_port(), [port1_speed, port2_speed, port3_speed])
+
         # Update UI
         self.update_motor_fields(port1_speed, port2_speed, port3_speed)
 
