@@ -1,0 +1,13 @@
+[Unit]
+Description=HDMI ground socket for the controller UI
+After=openhd.service
+Wants=openhd.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /home/openhd/hdmi_ground_socket.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
